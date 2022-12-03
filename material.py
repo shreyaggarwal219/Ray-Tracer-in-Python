@@ -4,8 +4,8 @@ from ray import Ray
 
 
 class Material:
-    def __init__(self, color):
-        self.albedo = color
+    def __init__(self, texture):
+        self.texture = texture
         pass
 
     def reflect(self, ray_in, rec):
@@ -13,8 +13,9 @@ class Material:
 
 
 class Lambert(Material):
-    def __init__(self, color):
-        super().__init__(color)
+    def __init__(self, texture):
+        super().__init__(texture)
+        self.albedo = texture.color
 
     def reflect(self, ray_in, rec):
         reflected = rec.p + RandomInHemisphere(rec.normal)
@@ -22,8 +23,8 @@ class Lambert(Material):
 
 
 class Metal(Material):
-    def __init__(self, color, glossy=0):
-        super().__init__(color)
+    def __init__(self, texture, glossy=0):
+        super().__init__(texture)
         self.glossy = glossy
 
     def reflect(self, ray_in, rec):
@@ -34,21 +35,52 @@ class Metal(Material):
 
 class Dielectric(Material):
     def __init__(self, eta):
-        Material.__init__(self, Color(1, 1, 1))
+        Material.__init__(self, SolidTexture(Color(1, 1, 1)))
         self.eta = eta
 
     def reflect(self, ray_in, rec):
         eta = 1 / self.eta
         if not rec.front_face:
             eta = self.eta
-        cos_theta = Vector.dot(-ray_in.direction, rec.normal)/(ray_in.direction.mag() * rec.normal.mag())
-        sin_theta = math.sqrt(1 - cos_theta**2)
+        cos_theta = Vector.dot(-ray_in.direction, rec.normal) / (ray_in.direction.mag() * rec.normal.mag())
+        sin_theta = math.sqrt(1 - cos_theta ** 2)
         direction = Vector(0, 0, 0)
         if eta * sin_theta > 1:
             direction = Vector.reflect(ray_in.direction, rec.normal)
         else:
             direction = Vector.refract(ray_in.direction, rec.normal, eta)
         return Ray(rec.p, direction)
+
+
+class Texture():
+    def __init__(self):
+        pass
+
+    def value(self, p, u, v):
+        pass
+
+
+class SolidTexture(Texture):
+    def __init__(self, color):
+        super().__init__()
+        self.color = color
+
+    def value(self, p, u, v):
+        return self.color
+
+
+class CheckerTexture(Texture):
+    def __init__(self, color1, color2):
+        super().__init__()
+        self.color1 = color1
+        self.color2 = color2
+
+    def value(self, p, u, v):
+        sine = math.sin(p.x * 100) * math.sin(p.y * 100) * math.sin(p.z * 100)
+        if sine < 0:
+            return self.color1
+        else:
+            return self.color2
 
 
 def Phong(light, rec, cam, incoming_dir):
@@ -66,4 +98,5 @@ def Blinn(light, rec, cam, incoming_dir):
     halfway_vector = Vector.unit_vector(eye_direction - incoming_dir)
     cos_beta = Vector.dot(halfway_vector, rec.normal) / (halfway_vector.mag() * rec.normal.mag())
     cos_theta = Vector.dot(rec.normal, -incoming_dir) / (rec.normal.mag() * incoming_dir.mag())
-    return (light.color * max(cos_theta, 0) + light.color * (max(cos_beta, 0) ** 5)) * light.intensity         #diffuse Shading + specular Shading
+    return (light.color * max(cos_theta, 0) + light.color * (
+            max(cos_beta, 0) ** 5)) * light.intensity  # diffuse Shading + specular Shading

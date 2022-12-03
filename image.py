@@ -26,7 +26,8 @@ class Image:
         if rec.hashit and rec.mat is not None:
             lightColor = lights.lightColor(rec, objects, cam)
             return Vector.mulVec(rec.emit + lightColor + self.pathTrace(rec.mat.reflect(ray, rec), objects, lights,
-                                                             maxDepth - 1, cam), rec.mat.albedo)
+                                                                        maxDepth - 1, cam),
+                                 rec.mat.texture.value(rec. p, rec.u, rec.v))
         return self.bg
 
     def render_from_multiprocess(self, cam, objects, lights, samples_per_pixel, maxDepth):

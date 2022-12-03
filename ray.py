@@ -23,6 +23,8 @@ class TempRec:
         self.mat = None
         self.front_face = False
         self.emit = Color(0,0,0)
+        self.u = 0
+        self.v = 0
 
     def set_face_normal(self, ray):
         if Vector.dot(self.normal,ray.direction) >= 0:

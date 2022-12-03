@@ -16,6 +16,9 @@ class Geometry:
     def intersect(self, ray, rec):
         pass
 
+    def get_uv(self, p):
+        pass
+
 
 class Sphere(Geometry):
     def __init__(self, origin, radius, mat, isemissive=False):
@@ -43,6 +46,7 @@ class Sphere(Geometry):
                 rec.hashit = True
                 rec.mat = self.mat
                 rec.emit = self.emit()
+                rec.u, rec.v = self.get_uv(rec.normal)
         return rec
 
     def emit(self):
@@ -53,6 +57,13 @@ class Sphere(Geometry):
     def bounding_box(self):
         return AABB(self.origin - Vector(self.radius, self.radius, self.radius),
                     self.origin + Vector(self.radius, self.radius, self.radius))
+
+    def get_uv(self, p):
+        theta = math.acos(-p.y)
+        phi = math.atan2(-p.z, p.x) + math.pi
+        u = phi / (2 * math.pi)
+        v = theta / math.pi
+        return u, v
 
 
 class xyRectangle(Geometry):
@@ -66,7 +77,7 @@ class xyRectangle(Geometry):
         self.mat = mat
         self.isemissive = isemissive
         self.box = self.bounding_box()
-        self.origin = Vector((x1 + x2)/2 , (y1 + y2)/2 , k)
+        self.origin = Vector((x1 + x2) / 2, (y1 + y2) / 2, k)
 
     def intersect(self, ray, rec):
         super().__init__()

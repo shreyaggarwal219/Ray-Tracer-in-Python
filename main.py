@@ -43,40 +43,44 @@ def renderImage(width, height, pixels):
 
 
 def main():
-    WIDTH = 600
+    HEIGHT = 600
     aspect_ratio = 1
-    HEIGHT = round(WIDTH / aspect_ratio)
-    samples_per_pixel = 10
-    maxDepth = 5
+    WIDTH = (int)(HEIGHT * aspect_ratio)
+    samples_per_pixel = 50
+    maxDepth = 10
 
-    background_color = Color(0, 0, 0)
+    background_color = Color(1, 1, 1)
     im = Image(WIDTH, HEIGHT, background_color)
-    origin = Vector(0, 0, 1)
+    origin = Vector(0, 0, 0)
     lookat = Vector(0,0,-1)
     vfov = 90
     cam = Camera(origin, lookat, vfov, aspect_ratio)
     obj = Geometry()
+
+    obj.add(xyRectangle(-1, -1, 1, 1, -2, Lambert(SolidTexture(Color(0.73, 0.73, 0.73)))))
+    obj.add(yzRectangle(-1, -1, 1, 1, -0.5, Lambert(SolidTexture(Color(0.65, 0.05, 0.05)))))         #Red
+    obj.add(yzRectangle(-1, -1, 1, 1, 0.5, Lambert(SolidTexture(Color(0.05, 0.65, 0.05)))))          #Green
+    obj.add(zxRectangle(-1, -1, 1, 1, -0.5, Lambert(SolidTexture(Color(0.73, 0.73, 0.73)))))
+    obj.add(zxRectangle(-1, -1, 1, 1, 0.5, Lambert(SolidTexture(Color(0.73, 0.73, 0.73)))))
+    obj.add(zxRectangle(-0.5, -0.5, 0.5, 0.5, 0.45, Lambert(SolidTexture(Color(10, 10, 10))), True))
+    
+    obj.add(Sphere(Vector(1, 1, -1), 0.25, Metal(SolidTexture(Color(0.8, 0.6, 0.2)), 0)))
+    #obj.add(Sphere(Vector(0, -100.5, -1), 100, Lambert(Color(0.8, 0.8, 0))))
+    #obj.add(Sphere(Vector(-1,1,-1), 0.25, Lambert(Color(1,0,0))))
     '''
-    obj.add(xyRectangle(-1, -1, 1, 1, -2, Lambert(Color(0.73, 0.73, 0.73)), True))
-    obj.add(yzRectangle(-1, -1, 1, 1, -0.5, Lambert(Color(0.65, 0.05, 0.05))))
-    obj.add(yzRectangle(-1, -1, 1, 1, 0.5, Lambert(Color(0.05, 0.65, 0.05))))
-    obj.add(zxRectangle(-1, -1, 1, 1, -0.5, Lambert(Color(0.73, 0.73, 0.73)), True))
-    obj.add(zxRectangle(-1, -1, 1, 1, 0.5, Lambert(Color(0.73, 0.73, 0.73)), True))
-    obj.add(zxRectangle(-0.5, -0.5, 0.5, 0.5, 0.45, Lambert(Color(10, 10, 10)), True))
-  '''
     for i in range(20):
-        obj.add(Sphere(Vector(randf(-1,1), randf(-1,1), randf(-1,1)), randf(0,0.2), Lambert(Color(randf(0,1), randf(0,1), randf(0,1)))))
+        obj.add(Sphere(Vector(randf(-2,2), randf(-2,2), -1), randf(0,0.4), Lambert(Color(randf(0,1), randf(0,1), randf(0,1)))))
+    for i in range(20):
+        obj.add(Sphere(Vector(randf(-2,2), randf(-2,2), -1), randf(0,0.4), Metal(Color(randf(0,1), randf(0,1), randf(0,1)))))
+'''
     #obj.add(Sphere(Vector(-0.5, 0, -1), 0.25, Dielectric(1.5)))
-    '''
-    obj.add(Sphere(Vector(0.5, 0, -1), 0.25, Metal(Color(0.8, 0.6, 0.2), 0)))
-    obj.add(Sphere(Vector(0, -100.5, -1), 100, Lambert(Color(0.8, 0.8, 0))))
-    obj.add(Sphere(Vector(0,0,-1),0.25, Lambert(Color(1,0,0))))
-    '''
+    #obj.add(Sphere(Vector(0,-10,-1), 10, Lambert(CheckerTexture(Color(1,0,0), Color(1,1,0)))))
+
     bvh = BVH(0, len(obj.objects), obj.objects)
     soft_shadows = 0
     ambient = Color(0.1, 0.1, 0.1)
     lo = LightObjects(ambient, soft_shadows)
-    lo.add(PointLight(Vector(0, 0.4, 0), Color(0, 0, 1), 1))
+    #lo.add(PointLight(Vector(0, 0.4, 0), Color(0, 0, 1), 1))
     lo.add(DirectionLight(Vector(10, 10, 10), Vector(-1, -1, -1), Color(0.1, 0.1, 0.1), 1))
     #lo.add(SpotLight(Vector(0, 2, 0), Vector(0, -1, 0), to_Radian(50),to_Radian(40), Color(1, 1, 1), 10))
 
