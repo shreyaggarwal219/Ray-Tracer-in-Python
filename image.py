@@ -18,7 +18,7 @@ class Image:
 
     def pathTrace(self, ray, objects, lights, maxDepth, cam):
         if maxDepth <= 0:
-            return self.bg
+            return Color(0, 0, 0)
 
         rec = TempRec()
         rec = objects.intersect(ray, rec)
@@ -27,8 +27,11 @@ class Image:
             lightColor = lights.lightColor(rec, objects, cam)
             return Vector.mulVec(rec.emit + lightColor + self.pathTrace(rec.mat.reflect(ray, rec), objects, lights,
                                                                         maxDepth - 1, cam),
-                                 rec.mat.texture.value(rec. p, rec.u, rec.v))
-        return self.bg
+                                 rec.mat.texture.value(rec.p, rec.u, rec.v))
+
+        unit_direction = Vector.unit_vector(ray.direction)
+        t = 0.5 * (unit_direction.y + 1.0)
+        return (1.0 - t) * Color(1.0, 1.0, 1.0) + t * Color(0.5, 0.7, 1.0)
 
     def render_from_multiprocess(self, cam, objects, lights, samples_per_pixel, maxDepth):
         m = mp()

@@ -3,14 +3,15 @@ from material import *
 import Utilities
 
 
+# Light Objects
 class Light:
     def __init__(self, pos, color, intensity):
-        self.pos = pos
-        self.color = color
-        self.intensity = intensity
+        self.pos = pos  # Light Position
+        self.color = color  # Light Color
+        self.intensity = intensity  # Light Intensity
 
     def scatter(self, rec, cam):
-        return Color(0,0,0)
+        return Color(0, 0, 0)  # Radiance by Light
 
 
 class DirectionLight(Light):
@@ -52,22 +53,22 @@ class SpotLight(Light):
 
 
 class LightObjects:
-    def __init__(self, ambient, soft_shadows):
+    def __init__(self, soft_shadows):
         self.lights = []
-        self.ambient = ambient
-        self.soft_shadows = soft_shadows
+        self.soft_shadows = soft_shadows  # Soft Shadows
 
     def add(self, light):
-        self.lights.append(light)
+        self.lights.append(light)  # Add Lights to the list
 
     def lightColor(self, rec, objects, cam):
         lightColor = Color(0, 0, 0)
         for light in self.lights:
             rec2 = TempRec()
             rec2 = objects.intersect(Ray(rec.p, light.pos - rec.p + Utilities.RandomInSphere() * self.soft_shadows),
-                                        rec2)
-            s = 1
+                                     rec2)
+            # Check Radiance by every Light
+            s = 1  # Shadow Term
             if rec2.hashit and rec2.front_face and rec2.t < Vector.dist(rec2.p, light.pos):
                 s = 0
-            lightColor += s * (self.ambient + light.scatter(rec, cam))
+            lightColor += s * (light.scatter(rec, cam))
         return lightColor
