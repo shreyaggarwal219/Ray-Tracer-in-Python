@@ -5,3 +5,5 @@ Lambert Material, Metal Material, Dielectric Material, Glossy Material, Directio
 Spotlights, Hard and Soft Shadows, Super Sampling, Positionable Camera.  
 The Geometric Primitives supported are Spheres and Axis Aligned Planes.  
 The Ray Tracer uses Bounding Volume Hierarchies as the main Acceleration Structure.
+## **Reflections**
+![img.png](img.png)
