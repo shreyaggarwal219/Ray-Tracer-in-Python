@@ -14,6 +14,7 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 38.55 sec
 
 ## **Specular Lighting**
 Specular lighting is calculated by computing a reflection ray by reflecting the light vector about the normal at the intersection point. The view ray is compared to the reflection ray to determine how much specular lighting to contribute. The more parallel the vectors are the more specular lighting will be added.
+
 <img width="300" alt="Specular_Lighting, 39 14" src="https://user-images.githubusercontent.com/64409854/205715174-7ee7bf00-a7cf-40fa-9a42-d43f6a265953.png">
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 39.14 sec
 
@@ -37,21 +38,26 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 280.50 sec
 Refractions occur when rays intersect refractive spheres. The light at the intersection point is determined by blending the reflected and refracted light at that point. A reflective ray is cast in the same way as described in the previous section. The refractive ray is calculated by bending the original ray based on the angle of incidence and the indices of refraction of the two materials. The amount of reflective and refractive light at the point is determined by the Fresnel equation.
 
 <img width="300" alt="Refractions, spp50, mD10, 62 05" src="https://user-images.githubusercontent.com/64409854/205715307-5336a3ba-ea5c-4ef2-853a-69cf0756ee94.png">
+
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 62.05 sec
 
 ## **Shadows**
+
 Shadows are incorporated into lighting. To determine if a light source should contribute to the lighting at an intersection point a shadow ray is cast from the intersection point to the light source. If there is an intersection before the light source then this point is in the shadow of that light source.
 <p>
     <img width="300" alt="Hard_Shadow 63 19" src="https://user-images.githubusercontent.com/64409854/205715373-917539a5-3ff5-4faf-b474-7ffeb2652c55.png">
     <img width="300" alt="Soft_Shadow 154 62" src="https://user-images.githubusercontent.com/64409854/205715390-b1e0e02b-30b3-4dfa-8e7b-bb8620c8ad56.png">
 </p>
+
 ## **Spotlight**
 A spotlight produces a directed cone of light. The light becomes more intense closer to the spotlight source and to the center of the light cone.
-<img width="605" alt="SpotLight 115 55" src="https://user-images.githubusercontent.com/64409854/205715652-5511fe6a-8219-4aba-9fe4-592d464cf1e2.png">
+
+<img width="300" alt="SpotLight 115 55" src="https://user-images.githubusercontent.com/64409854/205715652-5511fe6a-8219-4aba-9fe4-592d464cf1e2.png">
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 115.55 sec
 
 ## **Image Textures** 
 <img width="300" alt="Space 172 13" src="https://user-images.githubusercontent.com/64409854/205715658-3ff659a3-220c-4792-98de-24aa398e6f58.png">
+
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 172.13 sec
 
 
