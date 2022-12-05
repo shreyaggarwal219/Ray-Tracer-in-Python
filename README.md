@@ -21,6 +21,9 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 39.14 sec
 ## **Reflections**
 Reflections are performed by casting rays originating from the intersection point directed along the reflection vector. A portion of the reflected ray's color will be contributed to the original intersection point based on how reflective the surface is. Fortunately this is fairly easy given the a recursive approach for casting rays. There is an arbitrary limit on how many reflections a ray can perform before stopping to improve performance and eliminate potential infinite loops.
 
+Diffuse surfaces reflect (scatter) light in many angles. Diffuse reflection accounts for more of the color than any other type of distribution because most objects are opaque and reflect light diffusely.
+Specular surfaces reflect light at the same as the angle at which the light strikes the surface. Specular reflection gives objects a glossy or mirror-like appearance.
+
 <p float="left">
     <img width="300" alt="Reflection, spp50, mD 10, 214 92" src="https://user-images.githubusercontent.com/64409854/205479140-5392b5b0-6b2c-4578-af91-d22acb219d7d.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <img width="300" alt="Reflection, spp50, mD10, 290 37" src="https://user-images.githubusercontent.com/64409854/205479037-35c43306-273e-4131-83c3-f4b0227ca504.png">
@@ -30,6 +33,8 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 214.92 sec &nbsp&nbsp&nbsp&nbsp&nbsp&nb
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 290.37 sec
 
 ## **Glossy Reflections** 
+Glossy surfaces are actually specular surfaces with micro surfaces at angles to surface plane. These micro surfaces reflect light not only specularly but also diffusely (at angles very close to the specular transmission), giving the surface a glossy appearance.
+
 <img width="300" alt="Glossy, spp50, mD10, 289 50" src="https://user-images.githubusercontent.com/64409854/205715261-f48bc269-2df4-4acf-97f4-51c99bef66a4.png">
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 280.50 sec
 
@@ -38,7 +43,6 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 280.50 sec
 Refractions occur when rays intersect refractive spheres. The light at the intersection point is determined by blending the reflected and refracted light at that point. A reflective ray is cast in the same way as described in the previous section. The refractive ray is calculated by bending the original ray based on the angle of incidence and the indices of refraction of the two materials. The amount of reflective and refractive light at the point is determined by the Fresnel equation.
 
 <img width="300" alt="Refractions, spp50, mD10, 62 05" src="https://user-images.githubusercontent.com/64409854/205715307-5336a3ba-ea5c-4ef2-853a-69cf0756ee94.png">
-
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 62.05 sec
 
 ## **Shadows**
@@ -57,7 +61,6 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 115.55 sec
 
 ## **Image Textures** 
 <img width="300" alt="Space 172 13" src="https://user-images.githubusercontent.com/64409854/205715658-3ff659a3-220c-4792-98de-24aa398e6f58.png">
-
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 172.13 sec
 
 
