@@ -64,10 +64,11 @@ class LightObjects:
         lightColor = Color(0, 0, 0)
         for light in self.lights:
             rec2 = TempRec()
-            for obj in objects:
-                rec2 = obj.intersect(Ray(rec.p, light.pos - rec.p + Utilities.RandomInSphere() * self.soft_shadows), rec2)
-                s = 1  # Shadow Term
-                if rec2.hashit:
-                    s = 0
+            rec2 = objects.intersect(Ray(rec.p, light.pos - rec.p + Utilities.RandomInSphere() * self.soft_shadows),
+                                     rec2)
+            # Check Radiance by every Light
+            s = 1  # Shadow Term
+            if rec2.hashit and rec2.front_face and rec2.t < Vector.dist(rec2.p, light.pos):
+                s = 0
             lightColor += s * (light.scatter(rec, cam))
         return lightColor

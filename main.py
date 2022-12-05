@@ -51,20 +51,20 @@ def main():
     samples_per_pixel = 50
     maxDepth = 10
 
-    ambient = Color(0, 0, 0)
+    ambient = Color(0.2, 0.3, 0.9)
 
     im = Image(WIDTH, HEIGHT, ambient)
 
     # Camera
-    origin = Vector(0, 0, 10)
+    origin = Vector(0, 1, 1)
     lookat = Vector(0, 0, -1)
-    vfov = 20
+    vfov = 90
     cam = Camera(origin, lookat, vfov, aspect_ratio)
 
     # Scene
     obj = Geometry()
     #obj = Cornell_Box(obj)
-    obj = Earth_Scene(obj)
+    obj = Refraction_Scene(obj)
     lo = Lighting()
     im = render_Scene(im, obj, lo, cam, samples_per_pixel, maxDepth)
     renderImage(WIDTH, HEIGHT, im.pixels)
