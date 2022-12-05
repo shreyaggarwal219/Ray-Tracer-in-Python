@@ -1,14 +1,15 @@
 import math
 import random
 from vector import *
+import imageio
 
 
 def randf(minimum, maximum):
     return (random.random()) * (maximum - minimum) + minimum
 
 
-def clampf(minimum, maximum):
-    return (random.random() - minimum) / (maximum - minimum)
+def clampf(num, minimum, maximum):
+    return max(min(maximum, num), minimum)
 
 
 def RandomInSphere():
@@ -40,3 +41,8 @@ def to_Radian(degree):
 
 def to_Degree(radians):
     return 180 / math.pi * radians
+
+
+def read_Image(image):
+    img = imageio.imread(image)
+    return img

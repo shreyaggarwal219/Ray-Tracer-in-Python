@@ -96,6 +96,7 @@ class xyRectangle(Geometry):
         rec.hashit = True
         rec.mat = self.mat
         rec.emit = self.emit()
+        rec.u, rec.v = self.get_uv(rec.p)
         return rec
 
     def emit(self):
@@ -105,6 +106,11 @@ class xyRectangle(Geometry):
 
     def bounding_box(self):
         return AABB(Vector(self.x1, self.y1, self.k - 0.01), Vector(self.x2, self.y2, self.k + 0.01))
+
+    def get_uv(self, p):
+        u = (p.x - self.x1) / (self.x2 - self.x1)
+        v = (p.y - self.y1) / (self.y2 - self.y1)
+        return u, v
 
 
 class yzRectangle(Geometry):

@@ -15,7 +15,7 @@ class Material:
 class Lambert(Material):
     def __init__(self, texture):
         super().__init__(texture)
-        self.albedo = texture.color
+        #self.albedo = texture.color
 
     def reflect(self, ray_in, rec):
         reflected = rec.p + RandomInHemisphere(rec.normal)
@@ -83,13 +83,36 @@ class CheckerTexture(Texture):
             return self.color2
 
 
+class ImageTexture(Texture):
+    def __init__(self, image: str):
+        super().__init__()
+        self.image = read_Image(image)
+        self.width = self.image.shape[1]
+        self.height = self.image.shape[0]
+        self.color_channels = self.image.shape[2]
+
+    def value(self, p, u, v):
+        u = clampf(u, 0, 1)
+        v = 1 - clampf(v, 0, 1)
+        color_scale = 1 / 255
+        i = int(u * self.width)
+        j = int(v * self.height)
+        if i >= self.width:
+            i = self.width - 1
+        if j >= self.height:
+            j = self.height - 1
+        return Color(self.image[j][i][0] * color_scale,
+                     self.image[j][i][1] * color_scale,
+                     self.image[j][i][2] * color_scale)
+
+
 def Phong(light, rec, cam, incoming_dir):
     incoming_dir = Vector.unit_vector(incoming_dir)
     reflect_dir = Vector.unit_vector(Vector.reflect(incoming_dir, rec.normal))
     eye_direction = Vector.unit_vector(cam.origin - rec.p)
     cos_alpha = Vector.dot(reflect_dir, eye_direction) / (reflect_dir.mag() * eye_direction.mag())
     cos_theta = Vector.dot(rec.normal, -incoming_dir) / (rec.normal.mag() * incoming_dir.mag())
-    return (light.color * max(cos_theta, 0) + light.color * (max(cos_alpha, 0) ** 5)) * light.intensity
+    return (light.color * max(cos_theta, 0) + light.color * (max(cos_alpha, 0) ** 10)) * light.intensity
 
 
 def Blinn(light, rec, cam, incoming_dir):
@@ -99,4 +122,4 @@ def Blinn(light, rec, cam, incoming_dir):
     cos_beta = Vector.dot(halfway_vector, rec.normal) / (halfway_vector.mag() * rec.normal.mag())
     cos_theta = Vector.dot(rec.normal, -incoming_dir) / (rec.normal.mag() * incoming_dir.mag())
     return (light.color * max(cos_theta, 0) + light.color * (
-            max(cos_beta, 0) ** 5)) * light.intensity  # diffuse Shading + specular Shading
+            max(cos_beta, 0) ** 10)) * light.intensity  # diffuse Shading + specular Shading
