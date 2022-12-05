@@ -38,6 +38,7 @@ Refractions occur when rays intersect refractive spheres. The light at the inter
 
 <img width="300" alt="Refractions, spp50, mD10, 62 05" src="https://user-images.githubusercontent.com/64409854/205715307-5336a3ba-ea5c-4ef2-853a-69cf0756ee94.png">
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 62.05 sec
+
 ## **Shadows**
 Shadows are incorporated into lighting. To determine if a light source should contribute to the lighting at an intersection point a shadow ray is cast from the intersection point to the light source. If there is an intersection before the light source then this point is in the shadow of that light source.
 <p>
@@ -50,7 +51,7 @@ A spotlight produces a directed cone of light. The light becomes more intense cl
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 115.55 sec
 
 ## **Image Textures** 
-<img width="601" alt="Space 172 13" src="https://user-images.githubusercontent.com/64409854/205715658-3ff659a3-220c-4792-98de-24aa398e6f58.png">
+<img width="300" alt="Space 172 13" src="https://user-images.githubusercontent.com/64409854/205715658-3ff659a3-220c-4792-98de-24aa398e6f58.png">
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 172.13 sec
 
 
