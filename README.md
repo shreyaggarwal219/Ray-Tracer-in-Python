@@ -90,7 +90,7 @@ Normal Mapping, or Bump Mapping, is a texture mapping technique used for faking 
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 84.19 sec &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 100.87 sec
 
-Some more Normal Mapping!
+## **Some more Renders!**
 <p>
     <img width="300" alt="Normal_Mappings 148 93" src="https://user-images.githubusercontent.com/64409854/205987730-9d181048-09af-4fc1-bcd2-2019ba37497e.png">
 </p>
