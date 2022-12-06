@@ -64,8 +64,8 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 115.55 sec
 
 ## **Normal Mapping**
 <p>
-    <img width="598" alt="Normal_mapping 138 40" src="https://user-images.githubusercontent.com/64409854/205987698-f0cdc277-13e1-47b2-a4ae-ac7e143a3542.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <img width="562" alt="Normal_Mappings 148 93" src="https://user-images.githubusercontent.com/64409854/205987730-9d181048-09af-4fc1-bcd2-2019ba37497e.png">
+    <img width="300" alt="Normal_mapping 138 40" src="https://user-images.githubusercontent.com/64409854/205987698-f0cdc277-13e1-47b2-a4ae-ac7e143a3542.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <img width="300" alt="Normal_Mappings 148 93" src="https://user-images.githubusercontent.com/64409854/205987730-9d181048-09af-4fc1-bcd2-2019ba37497e.png">
 </p>
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 138.40 sec &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 148.93 sec
