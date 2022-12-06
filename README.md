@@ -47,11 +47,18 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 62.05 sec
 
 ## **Shadows**
 
-Shadows are incorporated into lighting. To determine if a light source should contribute to the lighting at an intersection point a shadow ray is cast from the intersection point to the light source. If there is an intersection before the light source then this point is in the shadow of that light source.
+Shadows are incorporated into lighting. To determine if a light source should contribute to the lighting at an intersection point a shadow ray is cast from the intersection point to the light source. If there is an intersection before the light source then this point is in the shadow of that light source.  
 <p>
-    <img width="300" alt="Hard_Shadow 63 19" src="https://user-images.githubusercontent.com/64409854/205715373-917539a5-3ff5-4faf-b474-7ffeb2652c55.png">
-    <img width="300" alt="Soft_Shadow 154 62" src="https://user-images.githubusercontent.com/64409854/205715390-b1e0e02b-30b3-4dfa-8e7b-bb8620c8ad56.png">
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+    Hard Shadows &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    Soft Shadows
 </p>
+<p>
+    <img width="300" alt="Hard_Shadow 63 19" src="https://user-images.githubusercontent.com/64409854/205715373-917539a5-3ff5-4faf-b474-7ffeb2652c55.png">       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <img width="300" alt="Soft_Shadow 154 62" src="https://user-images.githubusercontent.com/64409854/205715390-b1e0e02b-30b3-4dfa-8e7b-bb8620c8ad56.png">
+</p>          
+SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 63.19 sec &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 154.62 sec
 
 ## **Spotlight**
 A spotlight produces a directed cone of light. The light becomes more intense closer to the spotlight source and to the center of the light cone.
@@ -60,12 +67,32 @@ A spotlight produces a directed cone of light. The light becomes more intense cl
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 115.55 sec
 
 ## **Image Textures** 
+Uniformly colored 3D objects look nice enough, but they are a little bland. Their uniform colors don't have the visual appeal of, say, a brick wall or a plaid couch. Three-dimensional objects can be made to look more interesting and more realistic by adding a texture to their surfaces.
+An image texture can be applied to a surface to make the color of the surface vary from point to point, something like painting a copy of the image onto the surface.
+
 <img width="300" alt="Space 172 13" src="https://user-images.githubusercontent.com/64409854/205715658-3ff659a3-220c-4792-98de-24aa398e6f58.png">
+SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 172.13 sec
 
 ## **Normal Mapping**
+Normal Mapping, or Bump Mapping, is a texture mapping technique used for faking the lighting of bumps and dents – an implementation of bump mapping. It is used to add details without using more polygons. A common use of this technique is to greatly enhance the appearance and details of a low polygon model by generating a normal map from a high polygon model or height map.
+
 <p>
-    <img width="300" alt="Normal_mapping 138 40" src="https://user-images.githubusercontent.com/64409854/205987698-f0cdc277-13e1-47b2-a4ae-ac7e143a3542.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    Without Normal Mapping
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    With Normal Mapping
+</p>
+<p>
+    <img width="300" alt="Without NM 84 19" src="https://user-images.githubusercontent.com/64409854/205993789-5b288ad6-1df0-45b1-b1bf-c784a69e72a1.png">
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <img width="300" alt="With NM 100 87" src="https://user-images.githubusercontent.com/64409854/205994007-ea817d1e-444c-4659-a29d-4dd262e307be.png">
+</p>
+
+SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 84.19 sec &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 100.87 sec
+
+
+<p>
     <img width="300" alt="Normal_Mappings 148 93" src="https://user-images.githubusercontent.com/64409854/205987730-9d181048-09af-4fc1-bcd2-2019ba37497e.png">
 </p>
-SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 138.40 sec &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 148.93 sec
