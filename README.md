@@ -25,7 +25,7 @@ Diffuse surfaces reflect (scatter) light in many angles. Diffuse reflection acco
 Specular surfaces reflect light at the same as the angle at which the light strikes the surface. Specular reflection gives objects a glossy or mirror-like appearance.
 
 <p float="left">
-    <img width="300" alt="Reflection, spp50, mD 10, 214 92" src="https://user-images.githubusercontent.com/64409854/205479140-5392b5b0-6b2c-4578-af91-d22acb219d7d.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <img width="300" alt="Reflection, spp50, mD 10, 214 92" src="https://user-images.githubusercontent.com/64409854/205479140-5392b5b0-6b2c-4578-af91-d22acb219d7d.png"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <img width="300" alt="Reflection, spp50, mD10, 290 37" src="https://user-images.githubusercontent.com/64409854/205479037-35c43306-273e-4131-83c3-f4b0227ca504.png">
     
 </p>
@@ -61,8 +61,11 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 115.55 sec
 
 ## **Image Textures** 
 <img width="300" alt="Space 172 13" src="https://user-images.githubusercontent.com/64409854/205715658-3ff659a3-220c-4792-98de-24aa398e6f58.png">
-SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 172.13 sec
 
-
-
-
+## **Normal Mapping**
+<p>
+    <img width="598" alt="Normal_mapping 138 40" src="https://user-images.githubusercontent.com/64409854/205987698-f0cdc277-13e1-47b2-a4ae-ac7e143a3542.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <img width="562" alt="Normal_Mappings 148 93" src="https://user-images.githubusercontent.com/64409854/205987730-9d181048-09af-4fc1-bcd2-2019ba37497e.png">
+</p>
+SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 138.40 sec &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 148.93 sec
