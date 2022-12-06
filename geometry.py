@@ -42,11 +42,14 @@ class Sphere(Geometry):
                 rec.front_face = rec.set_face_normal(ray)
                 rec.t = t
                 rec.p = ray.point_at(t)
+                rec.tangent = self.get_tangent(rec.normal)
                 rec.max = t
                 rec.hashit = True
                 rec.mat = self.mat
                 rec.emit = self.emit()
                 rec.u, rec.v = self.get_uv(rec.normal)
+                if self.mat.normal_map is not None:
+                    rec.normal = self.mat.normal_map.get_normal(rec.normal, rec.tangent, rec.p, rec.u, rec.v)
         return rec
 
     def emit(self):
@@ -64,6 +67,12 @@ class Sphere(Geometry):
         u = phi / (2 * math.pi)
         v = theta / math.pi
         return u, v
+
+    def get_tangent(self, p):
+        theta = math.acos(-p.y)
+        phi = math.atan2(-p.z, p.x)
+        tangent = Vector(-math.cos(theta) * math.cos(phi), math.sin(theta), math.cos(theta) * math.sin(phi))
+        return Vector.unit_vector(tangent)
 
 
 class xyRectangle(Geometry):

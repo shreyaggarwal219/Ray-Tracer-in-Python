@@ -19,6 +19,8 @@ class TempRec:
         self.t = math.inf
         self.p = -1
         self.normal = Vector(0, 0, 0)
+        self.tangent = Vector(0,0,0)
+        self.bitangent = Vector(0,0,0)
         self.hashit = False
         self.mat = None
         self.front_face = False

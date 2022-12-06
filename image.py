@@ -33,7 +33,7 @@ class Image:
         t = 0.5 * (unit_direction.y + 1.0)
         return (1.0 - t) * Color(1.0, 1.0, 1.0) + t * Color(0.5, 0.7, 1.0)
         '''
-        return Color(0.25, 0.25, 0.25)
+        return Color(0, 0, 0)
 
     def render_from_multiprocess(self, cam, objects, obj, lights, samples_per_pixel, maxDepth):
         m = mp()
