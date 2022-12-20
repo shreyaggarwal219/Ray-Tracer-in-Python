@@ -93,5 +93,8 @@ SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 100.87 sec
 ## **Some more Renders!**
 <p>
     <img width="300" alt="Normal_Mappings 148 93" src="https://user-images.githubusercontent.com/64409854/205987730-9d181048-09af-4fc1-bcd2-2019ba37497e.png">
+    <img width="300" alt="Screenshot 2022-12-07 at 11 09 41 AM" src="https://user-images.githubusercontent.com/64409854/206102594-e0d88a96-ea9a-4961-b349-a052efa398f1.png">
 </p>
-SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 148.93 sec
+<p>
+    SPP: 50 &nbsp Depth:10 &nbsp Time Taken: 64.11 sec
+</p>
